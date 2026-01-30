@@ -88,7 +88,7 @@
 > **목표**: Header, Footer 등 공통 컴포넌트 구현
 > **병렬 실행**: P1-T1, P1-T2 병렬 가능
 
-### [ ] P1-T1: Header 컴포넌트 구현
+### [x] P1-T1: Header 컴포넌트 구현
 - **담당**: frontend-specialist
 - **의존성**: P0-T3
 - **화면 명세**: `specs/shared/components.yaml` → Header
@@ -108,7 +108,7 @@
   - 반응형 동작 확인
   - 네비게이션 스무스 스크롤 동작
 
-### [ ] P1-T2: Footer 컴포넌트 구현
+### [x] P1-T2: Footer 컴포넌트 구현
 - **담당**: frontend-specialist
 - **의존성**: P0-T3
 - **화면 명세**: `specs/shared/components.yaml` → Footer
@@ -120,7 +120,7 @@
   - 저작권 연도 동적 표시
   - 반응형 레이아웃
 
-### [ ] P1-T3: Layout 통합
+### [x] P1-T3: Layout 통합
 - **담당**: frontend-specialist
 - **의존성**: P1-T1, P1-T2
 - **작업 내용**:
