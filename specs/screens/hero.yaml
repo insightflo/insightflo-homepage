@@ -1,0 +1,89 @@
+# Hero Section 명세
+version: "2.0"
+
+screen:
+  id: hero
+  name: 히어로 섹션
+  anchor: "#hero"
+  purpose: 첫인상, 3초 내 회사 정체성 전달
+
+# 데이터 (정적 - 하드코딩)
+data:
+  type: static
+  source: hardcoded
+  fields:
+    company_name: string    # 회사명
+    tagline: string         # 한 줄 소개 (문제해결 강조)
+    cta_text: string        # CTA 버튼 텍스트
+
+# 컴포넌트 구성
+components:
+  - id: hero_background
+    type: background
+    function: 딥블루 그라데이션 또는 배경 이미지
+    style:
+      color_scheme: deep-blue-gradient
+      height: 100vh
+
+  - id: hero_content
+    type: container
+    position: center
+    function: 히어로 콘텐츠 래퍼 (수직/수평 중앙 정렬)
+
+  - id: company_title
+    type: heading
+    level: h1
+    function: 회사명 표시
+    style:
+      font: bold
+      size: text-5xl / text-6xl
+      color: white
+
+  - id: tagline
+    type: text
+    function: 한 줄 소개 문구 표시
+    style:
+      size: text-xl / text-2xl
+      color: white/90
+
+  - id: cta_button
+    type: button
+    variant: primary
+    function: 서비스 섹션으로 유도
+    events:
+      - on: click
+        do: smooth-scroll
+        target: "#services"
+
+# 반응형
+responsive:
+  desktop:
+    title_size: text-6xl
+    tagline_size: text-2xl
+    layout: centered
+  mobile:
+    title_size: text-4xl
+    tagline_size: text-lg
+    layout: centered
+    padding: px-6
+
+# 테스트 시나리오
+tests:
+  - name: 초기 렌더링
+    when: 페이지 로드
+    then:
+      - 회사명 표시
+      - 한 줄 소개 표시
+      - CTA 버튼 표시
+      - 배경 그라데이션 적용
+
+  - name: CTA 클릭
+    when: "서비스 보기" 버튼 클릭
+    then:
+      - Services 섹션으로 스무스 스크롤
+
+  - name: 모바일 반응형
+    when: 화면 너비 < 640px
+    then:
+      - 폰트 크기 축소
+      - 패딩 조정

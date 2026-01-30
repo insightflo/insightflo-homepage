@@ -1,0 +1,82 @@
+# 화면 인덱스 - 회사 소개 페이지
+version: "2.0"
+type: single-page
+
+# 페이지 메타데이터
+page:
+  route: /
+  title: "회사 소개"
+  description: "AI 활용 웹/앱 개발 및 SI/시스템 구축"
+
+# 섹션 순서 및 네비게이션
+sections:
+  - id: header
+    component: Header
+    position: fixed-top
+    nav_visible: false
+
+  - id: hero
+    component: Hero
+    nav_label: null
+    anchor: "#hero"
+
+  - id: services
+    component: Services
+    nav_label: "서비스"
+    anchor: "#services"
+
+  - id: tech
+    component: TechStack
+    nav_label: "기술스택"
+    anchor: "#tech"
+
+  - id: about
+    component: About
+    nav_label: "회사소개"
+    anchor: "#about"
+
+  - id: portfolio
+    component: Portfolio
+    nav_label: null  # 준비 중이므로 네비게이션에 미노출
+    anchor: "#portfolio"
+    status: coming-soon
+
+  - id: contact
+    component: Contact
+    nav_label: "연락처"
+    anchor: "#contact"
+
+  - id: footer
+    component: Footer
+    position: bottom
+    nav_visible: false
+
+# 네비게이션 메뉴 (헤더에 표시)
+navigation:
+  items:
+    - label: "서비스"
+      href: "#services"
+    - label: "기술스택"
+      href: "#tech"
+    - label: "회사소개"
+      href: "#about"
+    - label: "연락처"
+      href: "#contact"
+
+# 연결점 맵
+connections:
+  - from: header.logo
+    to: "#hero"
+    action: scroll-to-top
+
+  - from: header.nav
+    to: "[각 섹션]"
+    action: smooth-scroll
+
+  - from: hero.cta
+    to: "#services"
+    action: smooth-scroll
+
+  - from: contact.email
+    to: "mailto:"
+    action: open-email-client

@@ -1,0 +1,112 @@
+# Portfolio Section 명세
+version: "2.0"
+
+screen:
+  id: portfolio
+  name: 포트폴리오 섹션
+  anchor: "#portfolio"
+  purpose: 프로젝트 사례로 역량 증명
+  status: coming-soon  # 준비 중
+
+# 현재 상태: 준비 중
+current_state:
+  status: coming-soon
+  display: placeholder
+  message: "포트폴리오 준비 중입니다"
+
+# 컴포넌트 구성 (준비 중 상태)
+components:
+  - id: section_container
+    type: section
+    function: 포트폴리오 섹션 래퍼
+    style:
+      padding: py-20
+      background: slate-50
+
+  - id: section_title
+    type: heading
+    level: h2
+    function: "포트폴리오" 타이틀 표시
+    style:
+      size: text-4xl
+      font: bold
+      align: center
+      margin_bottom: mb-8
+
+  - id: coming_soon_message
+    type: container
+    function: 준비 중 메시지 표시
+    children:
+      - id: message_icon
+        type: icon
+        name: construction
+        size: w-16 h-16
+        color: gray-400
+
+      - id: message_text
+        type: text
+        content: "포트폴리오 준비 중입니다"
+        style:
+          size: text-lg
+          color: gray-500
+          align: center
+
+# 향후 구현 계획 (나중에 활성화)
+future_implementation:
+  data:
+    type: static
+    source: hardcoded  # 또는 markdown files
+    schema:
+      PortfolioItem:
+        id: string
+        title: string
+        description: string
+        client: string        # optional
+        period: string
+        tech_stack: string[]
+        thumbnail: string
+        link: string          # optional
+        category: enum [ai, web, app, si]
+
+  components:
+    - id: filter_tabs
+      type: tabs
+      function: 카테고리 필터
+      options: [전체, AI, Web, App, SI]
+
+    - id: portfolio_grid
+      type: grid
+      function: 프로젝트 카드 그리드
+      style:
+        columns:
+          desktop: 3
+          tablet: 2
+          mobile: 1
+
+    - id: portfolio_card
+      type: card
+      function: 프로젝트 카드
+      children:
+        - thumbnail
+        - title
+        - description
+        - tech_stack_badges
+        - period
+
+    - id: detail_modal
+      type: modal
+      function: 프로젝트 상세 정보
+
+# 테스트 시나리오
+tests:
+  - name: 준비 중 상태 표시
+    when: 섹션 표시
+    then:
+      - 섹션 타이틀 "포트폴리오" 표시
+      - "준비 중입니다" 메시지 표시
+      - 아이콘 표시
+
+  - name: 네비게이션 미노출
+    when: 헤더 렌더링
+    then:
+      - 포트폴리오 메뉴 항목 미표시 (준비 중이므로)

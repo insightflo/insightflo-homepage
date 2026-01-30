@@ -1,0 +1,125 @@
+# Contact Section 명세
+version: "2.0"
+
+screen:
+  id: contact
+  name: 연락처 섹션
+  anchor: "#contact"
+  purpose: 문의 유도
+
+# 데이터 (정적 - 하드코딩)
+data:
+  type: static
+  source: hardcoded
+  fields:
+    title: string           # "문의하기"
+    description: string     # 안내 문구
+    email: string           # 이메일 주소
+    cta_text: string        # CTA 버튼 텍스트 (선택)
+
+# 컴포넌트 구성
+components:
+  - id: section_container
+    type: section
+    function: 연락처 섹션 래퍼
+    style:
+      padding: py-20
+      background: slate-900  # 또는 blue-900 (딥블루)
+      color: white
+
+  - id: section_content
+    type: container
+    function: 중앙 정렬 콘텐츠
+    style:
+      max_width: max-w-2xl
+      margin: mx-auto
+      text_align: center
+
+  - id: section_title
+    type: heading
+    level: h2
+    function: "문의하기" 타이틀 표시
+    style:
+      size: text-4xl
+      font: bold
+      color: white
+      margin_bottom: mb-6
+
+  - id: description
+    type: text
+    function: 안내 문구 표시
+    content: "프로젝트 문의는 이메일로 연락주세요"
+    style:
+      size: text-lg
+      color: white/80
+      margin_bottom: mb-8
+
+  - id: email_container
+    type: container
+    function: 이메일 정보 래퍼
+    style:
+      display: flex
+      direction: column
+      align: center
+      gap: gap-4
+
+  - id: email_link
+    type: link
+    function: 이메일 주소 (클릭 시 이메일 앱 실행)
+    href_pattern: "mailto:{email}"
+    style:
+      size: text-xl
+      font: semibold
+      color: blue-300
+      hover: underline
+    events:
+      - on: click
+        do: open-email-client
+
+  - id: cta_button
+    type: button
+    variant: primary-light
+    optional: true
+    function: "이메일 보내기" 버튼 (선택)
+    style:
+      background: white
+      color: slate-900
+      padding: px-8 py-3
+      border_radius: rounded-lg
+      font: semibold
+    events:
+      - on: click
+        do: open-email-client
+
+# 반응형
+responsive:
+  desktop:
+    padding: py-24
+    title_size: text-4xl
+  mobile:
+    padding: py-16
+    title_size: text-3xl
+
+# 테스트 시나리오
+tests:
+  - name: 초기 렌더링
+    when: 섹션 표시
+    then:
+      - 섹션 타이틀 "문의하기" 표시
+      - 안내 문구 표시
+      - 이메일 주소 표시
+
+  - name: 이메일 클릭
+    when: 이메일 주소 클릭
+    then:
+      - 이메일 앱 실행 (mailto: 프로토콜)
+
+  - name: CTA 버튼 클릭 (있는 경우)
+    when: "이메일 보내기" 버튼 클릭
+    then:
+      - 이메일 앱 실행
+
+  - name: 헤더 네비게이션
+    when: 헤더에서 "연락처" 클릭
+    then:
+      - 이 섹션으로 스무스 스크롤

@@ -1,0 +1,165 @@
+# Tech Stack Section 명세
+version: "2.0"
+
+screen:
+  id: tech
+  name: 기술 스택 섹션
+  anchor: "#tech"
+  purpose: 기술 역량 어필
+
+# 데이터 (정적 - 하드코딩)
+data:
+  type: static
+  source: hardcoded
+  schema:
+    TechItem:
+      name: string
+      icon: string
+      category: string
+
+  items:
+    # Frontend
+    - name: Vue
+      icon: vue
+      category: Frontend
+
+    # Backend
+    - name: Java
+      icon: java
+      category: Backend
+    - name: Express.js
+      icon: express
+      category: Backend
+
+    # AI
+    - name: Claude Code
+      icon: anthropic
+      category: AI
+    - name: OCR
+      icon: scan
+      category: AI
+    - name: Automation
+      icon: bot
+      category: AI
+
+    # Cloud
+    - name: AWS
+      icon: aws
+      category: Cloud
+    - name: GCP
+      icon: gcp
+      category: Cloud
+
+    # Database
+    - name: Oracle
+      icon: oracle
+      category: Database
+    - name: PostgreSQL
+      icon: postgresql
+      category: Database
+
+    # RAG
+    - name: Langchain
+      icon: langchain
+      category: RAG
+    - name: LangGraph
+      icon: graph
+      category: RAG
+    - name: VectorDB
+      icon: database
+      category: RAG
+
+# 컴포넌트 구성
+components:
+  - id: section_container
+    type: section
+    function: 기술 스택 섹션 래퍼
+    style:
+      padding: py-20
+      background: slate-50
+
+  - id: section_title
+    type: heading
+    level: h2
+    function: "기술 스택" 타이틀 표시
+    style:
+      size: text-4xl
+      font: bold
+      align: center
+      margin_bottom: mb-12
+
+  - id: tech_grid
+    type: grid
+    function: 기술 뱃지 그리드
+    style:
+      columns:
+        desktop: 6
+        tablet: 3
+        mobile: 2
+      gap: gap-4
+
+  - id: tech_badge
+    type: badge
+    function: 개별 기술 표시 (아이콘 + 이름)
+    children:
+      - id: badge_icon
+        type: icon
+        size: w-8 h-8
+
+      - id: badge_name
+        type: text
+        style:
+          size: text-sm
+          font: medium
+
+    style:
+      display: flex
+      direction: column
+      align: center
+      padding: p-4
+      background: white
+      border_radius: rounded-lg
+      hover: shadow-md
+
+# 레이아웃 옵션
+layout_options:
+  option_1:
+    name: 플랫 그리드
+    description: 카테고리 구분 없이 모든 기술을 그리드로 나열
+
+  option_2:
+    name: 카테고리별 그룹핑
+    description: Frontend, Backend 등 카테고리로 묶어서 표시
+    # 이 옵션 선택 시 추가 컴포넌트 필요
+
+selected_layout: option_1  # 또는 option_2
+
+# 반응형
+responsive:
+  desktop:
+    grid_columns: 6
+  tablet:
+    grid_columns: 3
+  mobile:
+    grid_columns: 2
+
+# 테스트 시나리오
+tests:
+  - name: 초기 렌더링
+    when: 섹션 표시
+    then:
+      - 섹션 타이틀 "기술 스택" 표시
+      - 14개 기술 뱃지 표시
+      - 각 뱃지에 아이콘과 이름 표시
+
+  - name: 반응형 그리드
+    when: 화면 크기 변경
+    then:
+      - Desktop(1024px+): 6열
+      - Tablet(640-1024px): 3열
+      - Mobile(<640px): 2열
+
+  - name: 호버 효과
+    when: 기술 뱃지에 마우스 오버
+    then:
+      - 그림자 효과 적용

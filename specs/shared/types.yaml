@@ -1,0 +1,148 @@
+# 공통 타입 정의
+version: "2.0"
+
+# 서비스 타입
+Service:
+  description: 서비스 정보
+  fields:
+    id:
+      type: string
+      required: true
+    icon:
+      type: string
+      required: true
+      description: 아이콘 이름 (lucide-icons)
+    title:
+      type: string
+      required: true
+    description:
+      type: string
+      required: true
+    features:
+      type: string[]
+      required: false
+      description: 서비스 특징 목록
+
+# 기술 스택 타입
+TechItem:
+  description: 기술 스택 항목
+  fields:
+    name:
+      type: string
+      required: true
+    icon:
+      type: string
+      required: true
+      description: 기술 아이콘 (simple-icons 또는 커스텀)
+    category:
+      type: enum
+      values: [Frontend, Backend, AI, Cloud, Database, RAG, Tools]
+      required: true
+
+# 핵심 가치 타입
+Value:
+  description: 회사 핵심 가치
+  fields:
+    title:
+      type: string
+      required: true
+    description:
+      type: string
+      required: true
+    icon:
+      type: string
+      required: false
+
+# 네비게이션 항목 타입
+NavItem:
+  description: 네비게이션 메뉴 항목
+  fields:
+    label:
+      type: string
+      required: true
+    href:
+      type: string
+      required: true
+      description: 앵커 링크 (#section-id)
+
+# 포트폴리오 항목 타입 (향후 사용)
+PortfolioItem:
+  description: 포트폴리오 프로젝트 항목
+  status: future  # 현재 미사용, 나중에 활성화
+  fields:
+    id:
+      type: string
+      required: true
+    title:
+      type: string
+      required: true
+    description:
+      type: string
+      required: true
+    client:
+      type: string
+      required: false
+      description: 고객사 (공개 가능 시)
+    period:
+      type: string
+      required: true
+      description: 프로젝트 기간
+    tech_stack:
+      type: string[]
+      required: true
+    thumbnail:
+      type: string
+      required: false
+      description: 썸네일 이미지 경로
+    link:
+      type: string
+      required: false
+      description: 프로젝트 URL
+    category:
+      type: enum
+      values: [ai, web, app, si]
+      required: true
+
+# 사이트 메타데이터 타입
+SiteMetadata:
+  description: 사이트 전역 메타데이터
+  fields:
+    site_name:
+      type: string
+      required: true
+    site_description:
+      type: string
+      required: true
+    site_url:
+      type: string
+      required: true
+    og_image:
+      type: string
+      required: false
+    twitter_handle:
+      type: string
+      required: false
+
+# 연락처 정보 타입
+ContactInfo:
+  description: 연락처 정보
+  fields:
+    email:
+      type: string
+      required: true
+    phone:
+      type: string
+      required: false
+    address:
+      type: string
+      required: false
+    social:
+      type: object
+      required: false
+      fields:
+        github:
+          type: string
+          required: false
+        linkedin:
+          type: string
+          required: false

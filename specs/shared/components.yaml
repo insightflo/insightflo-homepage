@@ -1,0 +1,199 @@
+# 공통 컴포넌트 명세
+version: "2.0"
+
+# Header 컴포넌트
+Header:
+  type: layout
+  position: fixed-top
+  function: 고정 헤더 (네비게이션)
+
+  components:
+    - id: header_container
+      type: container
+      style:
+        position: sticky
+        top: 0
+        z_index: z-50
+        background: white
+        shadow: shadow-sm
+        padding: py-4 px-6
+
+    - id: header_content
+      type: container
+      style:
+        max_width: max-w-7xl
+        margin: mx-auto
+        display: flex
+        justify: between
+        align: center
+
+    - id: logo
+      type: link
+      function: 로고/회사명 (클릭 시 최상단)
+      href: "#hero"
+      style:
+        font: bold
+        size: text-xl
+        color: slate-900
+      events:
+        - on: click
+          do: scroll-to-top
+
+    - id: desktop_nav
+      type: navigation
+      function: 데스크톱 네비게이션 메뉴
+      visible_on: md+
+      items_from: navigation.items
+      style:
+        display: flex
+        gap: gap-8
+      item_style:
+        color: slate-600
+        hover: slate-900
+        font: medium
+
+    - id: mobile_menu_button
+      type: button
+      function: 모바일 햄버거 메뉴 버튼
+      visible_on: md-
+      icon: menu
+      style:
+        padding: p-2
+      events:
+        - on: click
+          do: toggle-mobile-menu
+
+    - id: mobile_menu
+      type: overlay
+      function: 모바일 메뉴 (슬라이드)
+      visible_on: md-
+      initial_state: hidden
+      items_from: navigation.items
+      style:
+        position: fixed
+        top: 64px
+        left: 0
+        right: 0
+        background: white
+        shadow: shadow-lg
+        padding: p-6
+
+  responsive:
+    desktop:
+      nav_type: horizontal
+      mobile_menu: hidden
+    mobile:
+      nav_type: hamburger
+      mobile_menu: toggleable
+
+  tests:
+    - name: 데스크톱 렌더링
+      when: 화면 너비 >= 768px
+      then:
+        - 가로 네비게이션 메뉴 표시
+        - 햄버거 버튼 숨김
+
+    - name: 모바일 렌더링
+      when: 화면 너비 < 768px
+      then:
+        - 햄버거 버튼 표시
+        - 가로 메뉴 숨김
+
+    - name: 모바일 메뉴 토글
+      when: 햄버거 버튼 클릭
+      then:
+        - 모바일 메뉴 슬라이드 표시/숨김
+
+    - name: 네비게이션 클릭
+      when: 메뉴 항목 클릭
+      then:
+        - 해당 섹션으로 스무스 스크롤
+        - 모바일: 메뉴 자동 닫힘
+
+---
+
+# Footer 컴포넌트
+Footer:
+  type: layout
+  position: bottom
+  function: 페이지 하단 (저작권)
+
+  components:
+    - id: footer_container
+      type: container
+      style:
+        padding: py-8 px-6
+        background: slate-900
+        color: white
+
+    - id: footer_content
+      type: container
+      style:
+        max_width: max-w-7xl
+        margin: mx-auto
+        display: flex
+        justify: between
+        align: center
+        direction:
+          desktop: row
+          mobile: column
+        gap: gap-4
+
+    - id: copyright
+      type: text
+      content: "© 2025 {회사명}. All rights reserved."
+      style:
+        size: text-sm
+        color: slate-400
+
+    - id: social_links
+      type: container
+      optional: true
+      function: SNS 링크 (선택)
+      style:
+        display: flex
+        gap: gap-4
+      children:
+        - id: github_link
+          type: link
+          icon: github
+          href: "{github_url}"
+          external: true
+
+        - id: linkedin_link
+          type: link
+          icon: linkedin
+          href: "{linkedin_url}"
+          external: true
+
+  tests:
+    - name: 초기 렌더링
+      when: 페이지 로드
+      then:
+        - 저작권 텍스트 표시
+        - 현재 연도 포함
+
+---
+
+# 공통 섹션 래퍼
+SectionWrapper:
+  type: container
+  function: 각 섹션의 공통 래퍼
+
+  props:
+    id: string
+    background: string  # white | slate-50 | slate-900
+    padding: string     # default: py-20
+
+  style:
+    width: w-full
+    padding: "{padding}"
+    background: "{background}"
+
+  children:
+    - id: section_inner
+      type: container
+      style:
+        max_width: max-w-7xl
+        margin: mx-auto
+        padding: px-6

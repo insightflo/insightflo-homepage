@@ -1,0 +1,159 @@
+# About Section 명세
+version: "2.0"
+
+screen:
+  id: about
+  name: 회사 소개 섹션
+  anchor: "#about"
+  purpose: 회사/대표 소개, 신뢰감 형성
+
+# 데이터 (정적 - 하드코딩)
+data:
+  type: static
+  source: hardcoded
+  fields:
+    vision: string        # 비전/미션 문구
+    values: Value[]       # 핵심 가치 목록
+    representative:       # 대표 소개 (선택)
+      name: string
+      title: string
+      bio: string
+      image: string       # optional
+
+  schema:
+    Value:
+      title: string
+      description: string
+      icon: string        # optional
+
+# 컴포넌트 구성
+components:
+  - id: section_container
+    type: section
+    function: 회사 소개 섹션 래퍼
+    style:
+      padding: py-20
+      background: white
+
+  - id: section_title
+    type: heading
+    level: h2
+    function: "회사 소개" 타이틀 표시
+    style:
+      size: text-4xl
+      font: bold
+      align: center
+      margin_bottom: mb-12
+
+  - id: vision_block
+    type: container
+    function: 비전/미션 문구 표시
+    children:
+      - id: vision_text
+        type: text
+        style:
+          size: text-xl
+          align: center
+          color: gray-700
+          max_width: max-w-3xl
+          margin: mx-auto
+
+  - id: values_grid
+    type: grid
+    function: 핵심 가치 표시
+    style:
+      columns:
+        desktop: 3
+        mobile: 1
+      gap: gap-8
+      margin_top: mt-12
+
+  - id: value_card
+    type: card
+    function: 개별 핵심 가치 표시
+    children:
+      - id: value_icon
+        type: icon
+        size: w-10 h-10
+        color: blue-600
+
+      - id: value_title
+        type: heading
+        level: h3
+        style:
+          size: text-lg
+          font: semibold
+
+      - id: value_description
+        type: text
+        style:
+          size: text-sm
+          color: gray-600
+
+  # 대표 소개 (선택적)
+  - id: representative_block
+    type: container
+    optional: true
+    function: 대표 소개 영역
+    style:
+      margin_top: mt-16
+      display: flex
+      direction: row  # desktop
+      align: center
+      gap: gap-8
+
+    children:
+      - id: rep_image
+        type: image
+        optional: true
+        style:
+          width: w-32
+          height: h-32
+          border_radius: rounded-full
+
+      - id: rep_info
+        type: container
+        children:
+          - id: rep_name
+            type: heading
+            level: h3
+          - id: rep_title
+            type: text
+            style:
+              color: gray-500
+          - id: rep_bio
+            type: text
+            style:
+              color: gray-700
+
+# 반응형
+responsive:
+  desktop:
+    values_columns: 3
+    rep_layout: row
+  tablet:
+    values_columns: 3
+    rep_layout: row
+  mobile:
+    values_columns: 1
+    rep_layout: column
+
+# 테스트 시나리오
+tests:
+  - name: 초기 렌더링
+    when: 섹션 표시
+    then:
+      - 섹션 타이틀 "회사 소개" 표시
+      - 비전/미션 문구 표시
+      - 핵심 가치 카드 표시 (2-3개)
+
+  - name: 모바일 반응형
+    when: 화면 너비 < 640px
+    then:
+      - 핵심 가치 1열로 변경
+      - 대표 소개 세로 정렬
+
+  - name: 헤더 네비게이션
+    when: 헤더에서 "회사소개" 클릭
+    then:
+      - 이 섹션으로 스무스 스크롤
