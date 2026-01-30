@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://insightflo.com/sitemap.xml
+Sitemap: https://insightflo.co/sitemap-index.xml
