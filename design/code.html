@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Agency | 혁신적인 AI 솔루션</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary-deep: #1E3A5F;
+            --primary-navy: #0F172A;
+            --accent-blue: #3B82F6;
+        }
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+        .bg-navy { background-color: var(--primary-navy); }
+        .bg-deep-blue { background-color: var(--primary-deep); }
+        .text-deep-blue { color: var(--primary-deep); }
+        .border-deep-blue { border-color: var(--primary-deep); }
+        .tech-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0F172A',
+                        'deep-blue': '#1E3A5F',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+<nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-deep-blue rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined font-bold">hub</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-navy uppercase">NexCore AI</span>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold text-slate-600 hover:text-deep-blue transition-colors" href="#about">About</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-deep-blue transition-colors" href="#services">Services</a>
+<a class="text-sm font-semibold text-slate-600 hover:text-deep-blue transition-colors" href="#tech-stack">Tech Stack</a>
+<a class="px-5 py-2.5 bg-deep-blue text-white rounded-lg text-sm font-bold hover:bg-navy transition-colors" href="#contact">Contact</a>
+</div>
+</nav>
+</header>
+<section class="relative min-h-screen flex items-center justify-center hero-gradient pt-20 overflow-hidden">
+<div class="absolute inset-0 tech-pattern opacity-30"></div>
+<div class="absolute top-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -left-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px]"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+<h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
+                NexCore AI
+            </h1>
+<h2 class="text-xl md:text-3xl font-medium text-blue-100/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+                복잡한 비즈니스 난제를 인공지능 기술로 해결하는<br/>
+                신뢰 중심의 전문 AI 개발 파트너입니다.
+            </h2>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+<a class="px-10 py-5 bg-white text-navy rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all" href="#services">
+                    서비스 보기
+                </a>
+<a class="px-10 py-5 bg-transparent border border-white/30 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-all" href="#contact">
+                    무료 상담 신청
+                </a>
+</div>
+</div>
+</section>
+<section class="py-24 bg-slate-50" id="services">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-20">
+<h2 class="text-sm font-bold text-deep-blue uppercase tracking-widest mb-3">Our Expertise</h2>
+<h3 class="text-4xl font-bold text-navy">핵심 서비스 영역</h3>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="bg-white p-10 md:p-14 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
+<div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-deep-blue mb-8">
+<span class="material-symbols-outlined text-4xl">neurology</span>
+</div>
+<h4 class="text-2xl font-bold text-navy mb-4">AI Consulting</h4>
+<p class="text-slate-600 mb-10 leading-relaxed">
+                        최신 LLM 기술과 RAG 아키텍처를 기반으로 기업 고유의 데이터를 활용한 지능형 솔루션 도입 전략을 제시합니다.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+<span class="font-medium">RAG (검색 증강 생성) 구축</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+<span class="font-medium">LLM 파인튜닝 및 맞춤형 에이전트</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+<span class="font-medium">업무 프로세스 자동화 (Workflow Automation)</span>
+</li>
+</ul>
+</div>
+<div class="bg-white p-10 md:p-14 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
+<div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-deep-blue mb-8">
+<span class="material-symbols-outlined text-4xl">terminal</span>
+</div>
+<h4 class="text-2xl font-bold text-navy mb-4">System Development</h4>
+<p class="text-slate-600 mb-10 leading-relaxed">
+                        안정적인 아키텍처와 최신 스택을 사용하여 비즈니스 로직에 최적화된 고성능 엔터프라이즈 시스템을 개발합니다.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+<span class="font-medium">Modern Web &amp; App 개발</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+<span class="font-medium">시스템 통합 (SI) 및 API 설계</span>
+</li>
+<li class="flex items-center gap-3 text-slate-700">
+<span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+<span class="font-medium">데이터 파이프라인 및 백엔드 고도화</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white" id="tech-stack">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-sm font-bold text-deep-blue uppercase tracking-widest mb-3">Tech Stack</h2>
+<h3 class="text-4xl font-bold text-navy">신뢰할 수 있는 기술 스택</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="space-y-4">
+<h5 class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Frontend</h5>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span> Vue.js
+                        </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-blue-400"></span> TypeScript
+                        </div>
+</div>
+</div>
+<div class="space-y-4">
+<h5 class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Backend</h5>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-red-400"></span> Java / Spring
+                        </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-green-400"></span> Express.js
+                        </div>
+</div>
+</div>
+<div class="space-y-4">
+<h5 class="text-xs font-bold text-slate-400 uppercase tracking-tighter">AI Models</h5>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span> Claude 3.5
+                        </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-indigo-400"></span> GPT-4o
+                        </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-purple-400"></span> Llama 3
+                        </div>
+</div>
+</div>
+<div class="space-y-4">
+<h5 class="text-xs font-bold text-slate-400 uppercase tracking-tighter">AI Framework &amp; RAG</h5>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-blue-600"></span> LangChain
+                        </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-orange-400"></span> LlamaIndex
+                        </div>
+</div>
+</div>
+<div class="space-y-4">
+<h5 class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Database</h5>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span> PostgreSQL
+                        </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-cyan-400"></span> Pinecone
+                        </div>
+</div>
+</div>
+<div class="space-y-4">
+<h5 class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Cloud Infrastructure</h5>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-orange-500"></span> AWS
+                        </div>
+<div class="flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-lg text-sm font-semibold text-slate-700">
+<span class="w-2 h-2 rounded-full bg-blue-400"></span> GCP
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-navy text-white overflow-hidden relative" id="about">
+<div class="absolute inset-0 tech-pattern opacity-10"></div>
+<div class="max-w-5xl mx-auto px-6 relative z-10">
+<div class="mb-20">
+<span class="text-blue-400 font-bold tracking-widest text-sm uppercase mb-4 block">Vision &amp; Mission</span>
+<h2 class="text-3xl md:text-5xl font-bold leading-tight mb-8">
+                    인공지능 기술과 실질적 비즈니스<br/>가치의 연결을 지향합니다.
+                </h2>
+<p class="text-xl text-slate-300 leading-relaxed max-w-3xl">
+                    단순한 기술 도입을 넘어, 기업의 운영 효율성을 극대화하고 새로운 성장 동력을 창출할 수 있는 실무 중심의 AI 아키텍처를 제공하는 것이 우리의 사명입니다.
+                </p>
+</div>
+<div class="grid md:grid-cols-3 gap-12 pt-12 border-t border-white/10">
+<div>
+<h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-400">verified</span>
+                        Technical Excellence
+                    </h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+                        최신 논문과 검증된 기술력을 바탕으로 상용 수준의 고품질 인공지능 결과물을 약속합니다.
+                    </p>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-400">handshake</span>
+                        Reliability
+                    </h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+                        투명한 개발 프로세스와 정기적인 소통을 통해 고객사와의 단단한 파트너십을 구축합니다.
+                    </p>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-400">rocket_launch</span>
+                        Future-Proof
+                    </h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+                        오늘의 솔루션이 내일의 레거시가 되지 않도록 확장 가능한 구조 설계를 최우선으로 합니다.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-slate-50" id="portfolio">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<h2 class="text-sm font-bold text-deep-blue uppercase tracking-widest mb-10">Portfolio</h2>
+<div class="relative bg-white border border-dashed border-slate-300 rounded-3xl p-20 flex flex-col items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-transparent"></div>
+<span class="material-symbols-outlined text-6xl text-slate-200 mb-6">construction</span>
+<h3 class="text-2xl font-bold text-slate-400 relative z-10">현재 신규 프로젝트 준비 중입니다</h3>
+<p class="text-slate-400 mt-2 relative z-10">곧 더 많은 성공 사례를 공유해 드릴 예정입니다.</p>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white" id="contact">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<div class="inline-flex p-3 bg-blue-50 rounded-2xl mb-8">
+<span class="material-symbols-outlined text-deep-blue text-4xl">mail</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">문의하기</h2>
+<p class="text-xl text-slate-600 mb-12">
+                귀사의 비즈니스에 AI를 더하고 싶으신가요?<br/>
+                전문 엔지니어와 직접 상담을 시작해 보세요.
+            </p>
+<div class="flex flex-col items-center gap-8">
+<a class="text-3xl md:text-4xl font-extrabold text-deep-blue hover:text-blue-600 transition-colors" href="mailto:contact@nexcore-ai.com">
+                    contact@nexcore-ai.com
+                </a>
+<a class="inline-flex items-center gap-3 px-12 py-5 bg-deep-blue text-white rounded-xl font-bold text-lg hover:bg-navy transition-all shadow-xl shadow-blue-900/10" href="mailto:contact@nexcore-ai.com">
+<span class="material-symbols-outlined">send</span>
+                    이메일 보내기
+                </a>
+</div>
+</div>
+</section>
+<footer class="py-16 bg-slate-50 border-t border-slate-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row items-center justify-between gap-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-slate-300 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">hub</span>
+</div>
+<span class="text-lg font-bold tracking-tight text-slate-500 uppercase">NexCore AI</span>
+</div>
+<div class="flex gap-8 text-sm text-slate-400 font-bold">
+<a class="hover:text-deep-blue transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-deep-blue transition-colors" href="#">GitHub</a>
+<a class="hover:text-deep-blue transition-colors" href="#">Notion</a>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-slate-400">© 2024 NexCore AI Agency. All rights reserved.</p>
+<div class="flex gap-6 text-xs text-slate-400">
+<a class="hover:underline" href="#">개인정보처리방침</a>
+<a class="hover:underline" href="#">이용약관</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

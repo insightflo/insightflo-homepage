@@ -1,61 +1,59 @@
 ---
-// @TASK P3-T1 - About 섹션 구현
-// @SPEC specs/screens/about.yaml
-
-import ValueCard from '../common/ValueCard.astro';
-
-const values = [
-  {
-    icon: '💡',
-    title: '기술 혁신',
-    description: '최신 AI 기술을 비즈니스에 적용합니다'
-  },
-  {
-    icon: '🤝',
-    title: '고객 중심',
-    description: '고객의 성공이 우리의 성공입니다'
-  },
-  {
-    icon: '✨',
-    title: '신뢰와 품질',
-    description: '안정적이고 검증된 솔루션을 제공합니다'
-  }
-];
+// @TASK 디자인 리뉴얼 - About
 ---
 
-<section
-  id="about"
-  class="py-20 px-6 bg-white"
-  aria-labelledby="about-heading"
->
-  <div class="max-w-7xl mx-auto">
-    <!-- 섹션 타이틀 -->
-    <h2
-      id="about-heading"
-      class="text-4xl font-bold text-slate-900 text-center mb-6"
-    >
-      회사 소개
-    </h2>
+<section id="about" class="py-24 bg-navy text-white overflow-hidden relative">
+  <div class="absolute inset-0 tech-pattern opacity-10"></div>
 
-    <!-- 비전/미션 문구 -->
-    <p class="text-xl text-slate-600 text-center max-w-3xl mx-auto mb-12">
-      AI 기술과 시스템 개발 전문성을 바탕으로<br />
-      비즈니스의 디지털 혁신을 함께합니다.
-    </p>
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
+    <!-- Vision & Mission -->
+    <div class="mb-20">
+      <span class="text-blue-400 font-bold tracking-widest text-sm uppercase mb-4 block">Vision & Mission</span>
+      <h2 class="text-3xl md:text-5xl font-bold leading-tight mb-8">
+        인공지능 기술과 실질적 비즈니스<br/>가치의 연결을 지향합니다.
+      </h2>
+      <p class="text-xl text-slate-300 leading-relaxed max-w-3xl">
+        단순한 기술 도입을 넘어, 기업의 운영 효율성을 극대화하고 새로운 성장 동력을 창출할 수 있는 실무 중심의 AI 아키텍처를 제공하는 것이 우리의 사명입니다.
+      </p>
+    </div>
 
-    <!-- 핵심 가치 그리드 -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-6"
-      role="list"
-      aria-label="핵심 가치"
-    >
-      {
-        values.map((value) => (
-          <div role="listitem">
-            <ValueCard {...value} />
-          </div>
-        ))
-      }
+    <!-- Values -->
+    <div class="grid md:grid-cols-3 gap-12 pt-12 border-t border-white/10">
+      <div>
+        <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-blue-400">verified</span>
+          Technical Excellence
+        </h4>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          최신 논문과 검증된 기술력을 바탕으로 상용 수준의 고품질 인공지능 결과물을 약속합니다.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-blue-400">handshake</span>
+          Reliability
+        </h4>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          투명한 개발 프로세스와 정기적인 소통을 통해 고객사와의 단단한 파트너십을 구축합니다.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-blue-400">rocket_launch</span>
+          Future-Proof
+        </h4>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          오늘의 솔루션이 내일의 레거시가 되지 않도록 확장 가능한 구조 설계를 최우선으로 합니다.
+        </p>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .bg-navy { background-color: #0F172A; }
+  .tech-pattern {
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+</style>

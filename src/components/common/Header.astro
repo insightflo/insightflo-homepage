@@ -1,182 +1,59 @@
 ---
-// @TASK P1-T1 - Header 컴포넌트
-// @SPEC specs/shared/components.yaml#Header
-// @SPEC docs/planning/05-design-system.md
-
-import { navItems } from '../../data/navigation';
+// @TASK 디자인 리뉴얼 - Header
 ---
 
-<header class="sticky top-0 z-50 bg-white shadow-sm">
-  <div class="max-w-7xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <!-- 로고 -->
-      <a
-        href="#hero"
-        class="text-xl font-bold text-slate-900 hover:text-blue-600 transition-colors duration-200"
-        aria-label="InsightFlo 홈으로 이동"
-      >
-        InsightFlo
-      </a>
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+  <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-2">
+      <div class="w-10 h-10 bg-deep-blue rounded-lg flex items-center justify-center text-white">
+        <span class="material-symbols-outlined font-bold">hub</span>
+      </div>
+      <span class="text-xl font-bold tracking-tight text-navy uppercase">InsightFlo</span>
+    </a>
 
-      <!-- 데스크톱 네비게이션 (md 이상) -->
-      <nav class="hidden md:flex items-center gap-8" aria-label="주요 네비게이션">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="text-slate-600 font-medium hover:text-slate-900 transition-colors duration-200"
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-
-      <!-- 모바일 햄버거 버튼 (md 미만) -->
-      <button
-        id="mobile-menu-button"
-        class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-lg"
-        aria-label="메뉴 열기"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <svg
-          id="menu-icon"
-          class="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-        <svg
-          id="close-icon"
-          class="w-6 h-6 hidden"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#about" class="text-sm font-semibold text-slate-600 hover:text-deep-blue transition-colors">About</a>
+      <a href="#services" class="text-sm font-semibold text-slate-600 hover:text-deep-blue transition-colors">Services</a>
+      <a href="#tech-stack" class="text-sm font-semibold text-slate-600 hover:text-deep-blue transition-colors">Tech Stack</a>
+      <a href="#contact" class="px-5 py-2.5 bg-deep-blue text-white rounded-lg text-sm font-bold hover:bg-navy transition-colors">Contact</a>
     </div>
 
-    <!-- 모바일 메뉴 (슬라이드) -->
-    <nav
-      id="mobile-menu"
-      class="md:hidden fixed left-0 right-0 bg-white shadow-lg overflow-hidden transition-all duration-300 ease-in-out"
-      style="top: 64px; max-height: 0;"
-      aria-label="모바일 네비게이션"
-    >
-      <div class="p-6 space-y-4">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="block text-slate-600 font-medium hover:text-slate-900 hover:bg-slate-50 px-4 py-2 rounded-lg transition-colors duration-200"
-            data-mobile-menu-link
-          >
-            {item.label}
-          </a>
-        ))}
-      </div>
-    </nav>
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button" class="md:hidden p-2" aria-label="메뉴">
+      <span class="material-symbols-outlined text-slate-600">menu</span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-slate-100 px-6 py-4 space-y-4">
+    <a href="#about" class="block text-slate-600 font-semibold py-2" data-mobile-link>About</a>
+    <a href="#services" class="block text-slate-600 font-semibold py-2" data-mobile-link>Services</a>
+    <a href="#tech-stack" class="block text-slate-600 font-semibold py-2" data-mobile-link>Tech Stack</a>
+    <a href="#contact" class="block bg-deep-blue text-white rounded-lg px-5 py-3 text-center font-bold" data-mobile-link>Contact</a>
   </div>
 </header>
 
 <script>
-  // 모바일 메뉴 토글 기능
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('menu-icon');
-  const closeIcon = document.getElementById('close-icon');
-  const mobileMenuLinks = document.querySelectorAll('[data-mobile-menu-link]');
+  const btn = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const links = document.querySelectorAll('[data-mobile-link]');
 
-  let isMenuOpen = false;
-
-  function toggleMobileMenu() {
-    isMenuOpen = !isMenuOpen;
-
-    if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
-      // ARIA 속성 업데이트
-      mobileMenuButton.setAttribute('aria-expanded', String(isMenuOpen));
-      mobileMenuButton.setAttribute('aria-label', isMenuOpen ? '메뉴 닫기' : '메뉴 열기');
-
-      if (isMenuOpen) {
-        // 메뉴 열기
-        mobileMenu.style.maxHeight = '500px';
-        menuIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-      } else {
-        // 메뉴 닫기
-        mobileMenu.style.maxHeight = '0';
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      }
-    }
-  }
-
-  function closeMobileMenu() {
-    if (isMenuOpen) {
-      toggleMobileMenu();
-    }
-  }
-
-  // 햄버거 버튼 클릭 이벤트
-  mobileMenuButton?.addEventListener('click', toggleMobileMenu);
-
-  // 모바일 메뉴 링크 클릭 시 메뉴 닫기
-  mobileMenuLinks.forEach((link) => {
-    link.addEventListener('click', closeMobileMenu);
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
   });
 
-  // 스무스 스크롤 구현
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-
-      if (href === '#hero') {
-        e.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      } else if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          const headerHeight = 64; // sticky header 높이
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
     });
-  });
-
-  // ESC 키로 모바일 메뉴 닫기 (접근성)
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && isMenuOpen) {
-      closeMobileMenu();
-    }
   });
 </script>
 
 <style>
-  /* 모바일 메뉴 애니메이션을 위한 추가 스타일 */
-  #mobile-menu {
-    transition: max-height 0.3s ease-in-out;
-  }
+  .bg-deep-blue { background-color: #1E3A5F; }
+  .text-deep-blue { color: #1E3A5F; }
+  .text-navy { color: #0F172A; }
+  .bg-navy { background-color: #0F172A; }
 </style>

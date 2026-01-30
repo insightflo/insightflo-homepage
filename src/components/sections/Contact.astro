@@ -1,22 +1,42 @@
 ---
-// @TASK P3-T3 - Contact 섹션
-// @SPEC specs/screens/contact.yaml
+// @TASK 디자인 리뉴얼 - Contact
+// @SPEC design/code.html#contact
 
-const email = "contact@insightflo.com"; // 실제 이메일로 변경 필요
+const email = "contact@insightflo.com";
 ---
 
-<section id="contact" class="py-20 px-6 bg-slate-900">
-  <div class="max-w-2xl mx-auto text-center">
-    <h2 class="text-4xl font-bold text-white mb-6">문의하기</h2>
-    <p class="text-lg text-white/80 mb-8">
-      프로젝트 문의는 이메일로 연락주세요
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <!-- Mail Icon -->
+    <div class="inline-flex p-3 bg-blue-50 rounded-2xl mb-8">
+      <span class="material-symbols-outlined text-deep-blue text-4xl">mail</span>
+    </div>
+
+    <!-- Title -->
+    <h2 class="text-4xl md:text-5xl font-bold text-navy mb-6">문의하기</h2>
+
+    <!-- Description -->
+    <p class="text-xl text-slate-600 mb-12">
+      귀사의 비즈니스에 AI를 더하고 싶으신가요?<br/>
+      전문 엔지니어와 직접 상담을 시작해 보세요.
     </p>
-    <a
-      href={`mailto:${email}`}
-      class="text-xl font-semibold text-blue-300 hover:underline transition-colors"
-      aria-label="이메일로 문의하기"
-    >
-      {email}
-    </a>
+
+    <!-- Email & CTA -->
+    <div class="flex flex-col items-center gap-8">
+      <a href={`mailto:${email}`} class="text-3xl md:text-4xl font-extrabold text-deep-blue hover:text-blue-600 transition-colors">
+        {email}
+      </a>
+      <a href={`mailto:${email}`} class="inline-flex items-center gap-3 px-12 py-5 bg-deep-blue text-white rounded-xl font-bold text-lg hover:bg-navy transition-all shadow-xl shadow-blue-900/10">
+        <span class="material-symbols-outlined">send</span>
+        이메일 보내기
+      </a>
+    </div>
   </div>
 </section>
+
+<style>
+  .text-deep-blue { color: #1E3A5F; }
+  .bg-deep-blue { background-color: #1E3A5F; }
+  .text-navy { color: #0F172A; }
+  .bg-navy { background-color: #0F172A; }
+</style>

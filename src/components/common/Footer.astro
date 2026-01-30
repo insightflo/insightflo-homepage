@@ -1,24 +1,51 @@
 ---
-// @TASK P1-T2 - Footer 컴포넌트
-// @SPEC specs/shared/components.yaml#Footer
-// @SPEC docs/planning/05-design-system.md
+// @TASK 디자인 리뉴얼 - Footer
+// @SPEC design/code.html#Footer
 
 /**
- * Footer 컴포넌트
+ * Footer 컴포넌트 (리뉴얼)
  *
  * 기능:
+ * - 로고 + SNS 링크 (LinkedIn, GitHub, Notion)
  * - 저작권 정보 표시 (동적 연도)
+ * - 개인정보처리방침/이용약관 링크
  * - 반응형 레이아웃
- * - 디자인 시스템 준수 (slate-900 배경, slate-400 텍스트)
  */
 
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-slate-900 py-8 px-6">
-  <div class="max-w-7xl mx-auto text-center">
-    <p class="text-sm text-slate-400">
-      © {currentYear} InsightFlo. All rights reserved.
-    </p>
+<footer class="py-16 bg-slate-50 border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Top Row -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-slate-300 rounded-lg flex items-center justify-center text-white">
+          <span class="material-symbols-outlined text-sm">hub</span>
+        </div>
+        <span class="text-lg font-bold tracking-tight text-slate-500 uppercase">InsightFlo</span>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex gap-8 text-sm text-slate-400 font-bold">
+        <a href="#" class="hover:text-deep-blue transition-colors">LinkedIn</a>
+        <a href="#" class="hover:text-deep-blue transition-colors">GitHub</a>
+        <a href="#" class="hover:text-deep-blue transition-colors">Notion</a>
+      </div>
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-slate-400">© {currentYear} InsightFlo. All rights reserved.</p>
+      <div class="flex gap-6 text-xs text-slate-400">
+        <a href="#" class="hover:underline">개인정보처리방침</a>
+        <a href="#" class="hover:underline">이용약관</a>
+      </div>
+    </div>
   </div>
 </footer>
+
+<style>
+  .text-deep-blue { color: #1E3A5F; }
+</style>

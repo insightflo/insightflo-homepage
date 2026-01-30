@@ -1,35 +1,71 @@
 ---
-// @TASK P2-T2 - Services 섹션
-// @SPEC specs/screens/services.yaml
-
-import ServiceCard from '../common/ServiceCard.astro';
-import { services } from '../../data/services';
+// @TASK 디자인 리뉴얼 - Services
 ---
 
-<section
-  id="services"
-  class="py-20 px-6 bg-white"
-  aria-labelledby="services-heading"
->
-  <div class="max-w-7xl mx-auto">
-    <!-- 섹션 타이틀 -->
-    <h2
-      id="services-heading"
-      class="text-4xl font-bold text-slate-900 text-center mb-12"
-    >
-      서비스
-    </h2>
+<section id="services" class="py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-20">
+      <h2 class="text-sm font-bold text-deep-blue uppercase tracking-widest mb-3">Our Expertise</h2>
+      <h3 class="text-4xl font-bold text-navy">핵심 서비스 영역</h3>
+    </div>
 
-    <!-- 서비스 카드 그리드 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {services.map((service) => (
-        <ServiceCard
-          icon={service.icon}
-          title={service.title}
-          description={service.description}
-          features={service.features || []}
-        />
-      ))}
+    <!-- Service Cards -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- AI Consulting -->
+      <div class="bg-white p-10 md:p-14 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
+        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-deep-blue mb-8">
+          <span class="material-symbols-outlined text-4xl">neurology</span>
+        </div>
+        <h4 class="text-2xl font-bold text-navy mb-4">AI Consulting</h4>
+        <p class="text-slate-600 mb-10 leading-relaxed">
+          최신 LLM 기술과 RAG 아키텍처를 기반으로 기업 고유의 데이터를 활용한 지능형 솔루션 도입 전략을 제시합니다.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex items-center gap-3 text-slate-700">
+            <span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+            <span class="font-medium">RAG (검색 증강 생성) 구축</span>
+          </li>
+          <li class="flex items-center gap-3 text-slate-700">
+            <span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+            <span class="font-medium">LLM 파인튜닝 및 맞춤형 에이전트</span>
+          </li>
+          <li class="flex items-center gap-3 text-slate-700">
+            <span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+            <span class="font-medium">업무 프로세스 자동화 (Workflow Automation)</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- System Development -->
+      <div class="bg-white p-10 md:p-14 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
+        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-deep-blue mb-8">
+          <span class="material-symbols-outlined text-4xl">terminal</span>
+        </div>
+        <h4 class="text-2xl font-bold text-navy mb-4">System Development</h4>
+        <p class="text-slate-600 mb-10 leading-relaxed">
+          안정적인 아키텍처와 최신 스택을 사용하여 비즈니스 로직에 최적화된 고성능 엔터프라이즈 시스템을 개발합니다.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex items-center gap-3 text-slate-700">
+            <span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+            <span class="font-medium">Modern Web & App 개발</span>
+          </li>
+          <li class="flex items-center gap-3 text-slate-700">
+            <span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+            <span class="font-medium">시스템 통합 (SI) 및 API 설계</span>
+          </li>
+          <li class="flex items-center gap-3 text-slate-700">
+            <span class="material-symbols-outlined text-blue-500 text-xl">check_circle</span>
+            <span class="font-medium">데이터 파이프라인 및 백엔드 고도화</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .text-deep-blue { color: #1E3A5F; }
+  .text-navy { color: #0F172A; }
+</style>
