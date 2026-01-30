@@ -1,0 +1,58 @@
+---
+// @TASK P2-T1 - Hero 섹션
+// @SPEC specs/screens/hero.yaml
+// @DOC docs/planning/05-design-system.md
+
+// 정적 데이터 (명세서 기준)
+const companyName = "InsightFlo";
+const tagline = "AI 기술로 비즈니스의 새로운 가능성을 엽니다";
+const ctaText = "서비스 보기";
+---
+
+<section
+  id="hero"
+  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-900 to-blue-800 px-6"
+  aria-label="히어로 섹션"
+>
+  <div class="max-w-4xl mx-auto text-center">
+    <!-- 회사명 (H1) -->
+    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
+      {companyName}
+    </h1>
+
+    <!-- 한 줄 소개 (Tagline) -->
+    <p class="text-xl md:text-2xl text-white/90 mb-10">
+      {tagline}
+    </p>
+
+    <!-- CTA 버튼 -->
+    <a
+      href="#services"
+      class="inline-block px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition-colors duration-200"
+      aria-label="서비스 섹션으로 스크롤"
+    >
+      {ctaText}
+    </a>
+  </div>
+</section>
+
+<script>
+  // 스무스 스크롤 기능
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctaButton = document.querySelector('a[href="#services"]');
+
+    if (ctaButton) {
+      ctaButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const servicesSection = document.querySelector('#services');
+
+        if (servicesSection) {
+          servicesSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    }
+  });
+</script>

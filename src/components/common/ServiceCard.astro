@@ -1,0 +1,57 @@
+---
+// @TASK P2-T2 - 서비스 카드 컴포넌트
+// @SPEC specs/screens/services.yaml
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+const { icon, title, description, features } = Astro.props;
+
+// 아이콘 매핑 (이모지 사용)
+const iconMap: Record<string, string> = {
+  brain: '🧠',
+  code: '💻',
+  lightbulb: '💡',
+  cloud: '☁️',
+};
+
+const iconEmoji = iconMap[icon] || '🔧';
+---
+
+<div
+  class="bg-slate-50 p-8 rounded-xl hover:shadow-lg transition-shadow duration-300"
+  role="article"
+  aria-labelledby={`service-${icon}`}
+>
+  <!-- 아이콘 -->
+  <div
+    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6"
+    aria-hidden="true"
+  >
+    <span class="text-2xl">{iconEmoji}</span>
+  </div>
+
+  <!-- 제목 -->
+  <h3 id={`service-${icon}`} class="text-2xl font-bold text-slate-900 mb-4">
+    {title}
+  </h3>
+
+  <!-- 설명 -->
+  <p class="text-slate-600 mb-6 leading-relaxed">
+    {description}
+  </p>
+
+  <!-- 특징 목록 -->
+  <ul class="space-y-2" role="list">
+    {features.map((feature) => (
+      <li class="flex items-center text-slate-700">
+        <span class="text-blue-600 mr-2 font-bold" aria-hidden="true">✓</span>
+        <span>{feature}</span>
+      </li>
+    ))}
+  </ul>
+</div>

@@ -139,7 +139,7 @@
 > **목표**: Hero, Services, Tech Stack 섹션 구현
 > **병렬 실행**: P2-T1, P2-T2, P2-T3 병렬 가능 (의존성 없음)
 
-### [ ] P2-T1: Hero 섹션 구현
+### [x] P2-T1: Hero 섹션 구현
 - **담당**: frontend-specialist
 - **의존성**: P1-T3
 - **화면 명세**: `specs/screens/hero.yaml`
@@ -158,7 +158,7 @@
   - 3초 내 회사 정체성 전달 가능
   - CTA 동작 확인
 
-### [ ] P2-T2: Services 섹션 구현
+### [x] P2-T2: Services 섹션 구현
 - **담당**: frontend-specialist
 - **의존성**: P1-T3
 - **화면 명세**: `specs/screens/services.yaml`
@@ -187,7 +187,7 @@
   - 서비스 정보 명확히 전달
   - 반응형 그리드 동작
 
-### [ ] P2-T3: Tech Stack 섹션 구현
+### [x] P2-T3: Tech Stack 섹션 구현
 - **담당**: frontend-specialist
 - **의존성**: P1-T3
 - **화면 명세**: `specs/screens/tech-stack.yaml`

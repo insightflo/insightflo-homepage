@@ -1,0 +1,35 @@
+---
+// @TASK P2-T2 - Services 섹션
+// @SPEC specs/screens/services.yaml
+
+import ServiceCard from '../common/ServiceCard.astro';
+import { services } from '../../data/services';
+---
+
+<section
+  id="services"
+  class="py-20 px-6 bg-white"
+  aria-labelledby="services-heading"
+>
+  <div class="max-w-7xl mx-auto">
+    <!-- 섹션 타이틀 -->
+    <h2
+      id="services-heading"
+      class="text-4xl font-bold text-slate-900 text-center mb-12"
+    >
+      서비스
+    </h2>
+
+    <!-- 서비스 카드 그리드 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {services.map((service) => (
+        <ServiceCard
+          icon={service.icon}
+          title={service.title}
+          description={service.description}
+          features={service.features || []}
+        />
+      ))}
+    </div>
+  </div>
+</section>
