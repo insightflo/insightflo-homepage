@@ -223,7 +223,7 @@
 > **목표**: About, Portfolio, Contact 섹션 구현
 > **병렬 실행**: P3-T1, P3-T2, P3-T3 병렬 가능
 
-### [ ] P3-T1: About 섹션 구현
+### [x] P3-T1: About 섹션 구현
 - **담당**: frontend-specialist
 - **의존성**: P2 완료
 - **화면 명세**: `specs/screens/about.yaml`
@@ -243,7 +243,7 @@
   - 회사 가치관 전달
   - 신뢰감 형성
 
-### [ ] P3-T2: Portfolio 섹션 구현 (준비 중)
+### [x] P3-T2: Portfolio 섹션 구현 (준비 중)
 - **담당**: frontend-specialist
 - **의존성**: P2 완료
 - **화면 명세**: `specs/screens/portfolio.yaml`
@@ -255,7 +255,7 @@
   - 플레이스홀더 표시
   - 추후 확장 가능한 구조
 
-### [ ] P3-T3: Contact 섹션 구현
+### [x] P3-T3: Contact 섹션 구현
 - **담당**: frontend-specialist
 - **의존성**: P2 완료
 - **화면 명세**: `specs/screens/contact.yaml`
